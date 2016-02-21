@@ -6,6 +6,7 @@ $( document ).ready(function() {
     initTable();
     $('#Start').click(startSimulation);
     $('#Clear').click(clearBoard);
+    $('#Randomize').click(randomize);
     $('#TableSize').val(dim);
     $('#TableSize').change(sizeChanged);
 });
@@ -66,6 +67,7 @@ function startSimulation() {
     startButton.click(stopSimulation);
     $('#Clear').prop('disabled', true);
     $('#TableSize').prop('disabled', true);
+    $('#Randomize').prop('disabled', true);
 }
 
 function stopSimulation() {
@@ -77,6 +79,7 @@ function stopSimulation() {
     startButton.click(startSimulation);
     $('#Clear').prop('disabled', false);
     $('#TableSize').prop('disabled', false);
+    $('#Randomize').prop('disabled', false);
 }
 
 function nextStep() {
@@ -116,4 +119,9 @@ function sizeChanged() {
 
 function updateCounter(){
     $('#Counter').text(counter);
+}
+
+function randomize() {
+    game.randomize();
+    updateView();
 }

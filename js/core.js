@@ -77,6 +77,16 @@ function Grid(dim) {
         console.log(out);
     }
 
+    this.randomize = function() {
+        var probability = 0.5;
+
+        for(var i=0; i<this.dim; i++) {
+            for(var j=0; j<this.dim; j++) {
+                    this.m[i][j] = (Math.random()<probability);
+            }
+        }
+    }
+
 }
 
 function mod(m,n) {
