@@ -5,15 +5,20 @@ $( document ).ready(function() {
     initTable();
     $('#Start').click(startSimulation);
     $('#Clear').click(clearBoard);
+    $('#TableSize').val(dim);
+    $('#TableSize').change(sizeChanged);
 });
 
-var game = new Grid(dim);
+var game;
 var tds = [];
 var timer;
 var interval = 500;
 
 function initTable() {
 
+    $("#Board").empty();
+
+    game = new Grid(dim);
     var tab = $('<table id="GameTable"></table>');
     $("#Board").append(tab);
     for(var i=0; i<dim; i++) {
@@ -48,7 +53,6 @@ function setCellStatus(x, y, status) {
 }
 
 function startSimulation() {
-    console.log("startSimulation");
     timer = setInterval(nextStep, interval);
 
     var startButton = $('#Start');
@@ -56,10 +60,10 @@ function startSimulation() {
     startButton.off("click");
     startButton.click(stopSimulation);
     $('#Clear').prop('disabled', true);
+    $('#TableSize').prop('disabled', true);
 }
 
 function stopSimulation() {
-    console.log("stopSimulation");
     clearInterval(timer);
 
     var startButton = $('#Start');
@@ -67,6 +71,7 @@ function stopSimulation() {
     startButton.off("click");
     startButton.click(startSimulation);
     $('#Clear').prop('disabled', false);
+    $('#TableSize').prop('disabled', false);
 }
 
 function nextStep() {
@@ -92,4 +97,10 @@ function clearBoard() {
             setCellStatus(i,j, false);
         }
     }
+}
+
+function sizeChanged() {
+    var size= parseInt($('#TableSize').val());
+    dim = size;
+    initTable();
 }
