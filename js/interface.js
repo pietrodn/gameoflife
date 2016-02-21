@@ -1,5 +1,6 @@
 "use strict";
 var dim=20;
+var counter=0;
 
 $( document ).ready(function() {
     initTable();
@@ -12,9 +13,11 @@ $( document ).ready(function() {
 var game;
 var tds = [];
 var timer;
-var interval = 500;
+var interval = 250;
 
 function initTable() {
+    counter=0;
+    updateCounter();
 
     $("#Board").empty();
 
@@ -54,6 +57,8 @@ function setCellStatus(x, y, status) {
 
 function startSimulation() {
     timer = setInterval(nextStep, interval);
+    counter=0;
+    updateCounter();
 
     var startButton = $('#Start');
     startButton.text('Stop!');
@@ -77,7 +82,9 @@ function stopSimulation() {
 function nextStep() {
     var equals;
     equals= game.nextStep();
+    counter++;
     updateView();
+    updateCounter();
     if(equals)
         stopSimulation();
 }
@@ -92,6 +99,8 @@ function updateView() {
 }
 
 function clearBoard() {
+    counter=0;
+    updateCounter();
     for(var i=0; i<dim; i++) {
         for(var j=0; j<dim; j++) {
             setCellStatus(i,j, false);
@@ -103,4 +112,8 @@ function sizeChanged() {
     var size= parseInt($('#TableSize').val());
     dim = size;
     initTable();
+}
+
+function updateCounter(){
+    $('#Counter').text(counter);
 }
