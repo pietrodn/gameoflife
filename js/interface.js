@@ -1,9 +1,10 @@
 "use strict";
-var dim=30;
+var dim=20;
 
 $( document ).ready(function() {
     initTable();
     $('#Start').click(startSimulation);
+    $('#Clear').click(clearBoard);
 });
 
 var game = new Grid(dim);
@@ -54,6 +55,7 @@ function startSimulation() {
     startButton.text('Stop!');
     startButton.off("click");
     startButton.click(stopSimulation);
+    $('#Clear').prop('disabled', true);
 }
 
 function stopSimulation() {
@@ -64,11 +66,15 @@ function stopSimulation() {
     startButton.text('Start!');
     startButton.off("click");
     startButton.click(startSimulation);
+    $('#Clear').prop('disabled', false);
 }
 
 function nextStep() {
-    game.nextStep();
+    var equals;
+    equals= game.nextStep();
     updateView();
+    if(equals)
+        stopSimulation();
 }
 
 function updateView() {
@@ -76,6 +82,14 @@ function updateView() {
         for(var j=0; j<dim; j++) {
             var status = game.getCell(i,j);
             setCellStatus(i,j, status);
+        }
+    }
+}
+
+function clearBoard() {
+    for(var i=0; i<dim; i++) {
+        for(var j=0; j<dim; j++) {
+            setCellStatus(i,j, false);
         }
     }
 }

@@ -33,8 +33,11 @@ function Grid(dim) {
         return count;
     }
 
+// this function computes next iteration and returns true if there's no different between old and new condition
+
     this.nextStep = function() {
         var m2 = [];
+        var equals= true;
 
         for(var i=0; i<this.dim; i++) {
             m2[i] = [];
@@ -51,9 +54,12 @@ function Grid(dim) {
                 } else {
                     m2[i][j] = this.m[i][j];
                 }
+                if(this.m[i][j]!= m2[i][j])
+                    equals= false;
             }
         }
         this.m = m2;
+        return equals;
     }
 
     this.print = function() {
