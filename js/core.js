@@ -23,9 +23,9 @@ function Grid(dim) {
     this.getNumberOfAliveNeighbours = function(x, y) {
         var count=0;
         var i,j;
-        for(i=Math.max(0, x-1); i<=Math.min(this.dim-1, x+1); i++) {
-            for(j=Math.max(0, y-1); j<=Math.min(this.dim-1, y+1); j++) {
-                if((x!=i || y!=j) && this.m[i][j]) {
+        for(i=-1; i<=1; i++) {
+            for(j=-1; j<=1; j++) {
+                if((i!=0 || j!=0) && this.m[mod(x+i,this.dim)][mod(y+j, this.dim)]) {
                     count++;
                 }
             }
@@ -71,6 +71,10 @@ function Grid(dim) {
         console.log(out);
     }
 
+}
+
+function mod(m,n) {
+    return ((m%n)+n)%n;
 }
 
 var grid = new Grid(5);

@@ -1,5 +1,5 @@
 "use strict";
-var dim=10;
+var dim=30;
 
 $( document ).ready(function() {
     initTable();
