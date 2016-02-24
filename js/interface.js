@@ -64,6 +64,7 @@ function startSimulation() {
     var startButton = $('#Start');
     startButton.text('Stop!');
     startButton.off("click");
+    startButton.removeClass('btn-success').addClass('btn-danger');
     startButton.click(stopSimulation);
     $('#Clear').prop('disabled', true);
     $('#TableSize').prop('disabled', true);
@@ -76,6 +77,7 @@ function stopSimulation() {
     var startButton = $('#Start');
     startButton.text('Start!');
     startButton.off("click");
+    startButton.removeClass('btn-danger').addClass('btn-success');
     startButton.click(startSimulation);
     $('#Clear').prop('disabled', false);
     $('#TableSize').prop('disabled', false);

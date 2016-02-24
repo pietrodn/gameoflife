@@ -2,7 +2,6 @@ table#GameTable td {
     width: 30px;
     height: 30px;
     border: 1px solid black;
-
 }
 
 table#GameTable {
@@ -15,4 +14,29 @@ table#GameTable {
 
 .dead {
     background-color: white;
+}
+
+body {
+  padding-top: 50px;
+}
+
+#Commands {
+    margin-top: 20px;
+}
+
+#Commands button {
+    margin-right: 10px;
+}
+
+#TableSize {
+    width: 60px;
+}
+
+#TableSizeGroup {
+
+}
+
+#NumIterations {
+    margin-top: 20px;
+    width: 400px;
 }
