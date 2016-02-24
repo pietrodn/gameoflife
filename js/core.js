@@ -33,7 +33,7 @@ function Grid(dim) {
         return count;
     }
 
-// this function computes next iteration and returns true if there's no different between old and new condition
+    // this function computes next iteration and returns true if there's no different between old and new condition
 
     this.nextStep = function() {
         var m2 = [];
