@@ -92,13 +92,3 @@ function Grid(dim) {
 function mod(m,n) {
     return ((m%n)+n)%n;
 }
-
-var grid = new Grid(5);
-grid.setLiveness(2,2,true);
-grid.setLiveness(2,1,true);
-grid.setLiveness(2,3,true);
-console.log(grid.getNumberOfAliveNeighbours(2,2));
-
-grid.print();
-grid.nextStep();
-grid.print();

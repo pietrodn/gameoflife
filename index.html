@@ -54,18 +54,20 @@
 
         <div id="Board">
         </div>
-        <div id="Commands" class="form-inline">
-            <button id="Start" class="btn btn-lg btn-success">Start!</button>
-            <button id="Clear" class="btn btn-lg btn-default">Reset</button>
-            <button id="Randomize" class="btn btn-lg btn-default">Random board</button>
+        <form id="Commands" class="form-inline">
+            <div class="form-group">
+                <button id="Start" class="btn btn-lg btn-success">Start!</button>
+                <button id="Clear" class="btn btn-lg btn-default">Reset</button>
+                <button id="Randomize" class="btn btn-lg btn-default">Random board</button>
+            </div>
 
             <div id="TableSizeGroup" class="form-group">
                 <label for="TableSize">Table size: </label>
                 <input type="text" id="TableSize" class="form-control" size="4">
             </div>
-            <div id="NumIterations" class="alert alert-success" role="alert">
-                Number of iterations: <span id="Counter">0</span>
-            </div>
+        </form>
+        <div id="NumIterations" class="alert alert-success" role="alert">
+            Number of iterations: <span id="Counter">0</span>
         </div>
 
         </div><!-- /.container -->

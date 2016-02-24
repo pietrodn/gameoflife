@@ -32,11 +32,11 @@ body {
     width: 60px;
 }
 
-#TableSizeGroup {
-
+#Counter {
+    font-weight: bold;
 }
 
 #NumIterations {
     margin-top: 20px;
-    width: 400px;
+    width: 200px;
 }
